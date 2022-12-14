@@ -1,0 +1,140 @@
+<!DOCTYPE html5>
+<html lang="en">
+  <head>
+    <title>Ask - Baton Mobiles</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1;" />
+    <!--linking the main.css file which contains all the styling for this webpage-->
+    <link href="../css/main_css.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body class="defTheme back_img">
+    <!--Header contains logo image, website name and navigation title-->
+    <header>
+      <!--logo image which redirects to Abouthtml page-->
+      <a href="About.html">
+        <img
+          class="logoImg"
+          src="../images/BM_Logo.png"
+          alt="This is Baton Logo"
+        />
+      </a>
+      <!--Website heading-->
+      <h2 class="logo">&nbsp;Baton Mobiles</h2>
+      <!--navigation menu which changes form to hamburger icon on mobile device view-->
+      <input class="menuNav" type="checkbox" id="menuID" />
+      <label class="menuIcon" for="menuID">
+        <span class="menuList"></span>
+      </label>
+      <nav>
+        <ul class="navMenu">
+          <li>
+            <a href="main_page.html">Home</a>
+          </li>
+          <li><a href="main_page.html#devices_sec">Devices</a></li>
+          <li><a href="main_page.html#offer_sec">Offers</a></li>
+          <li>
+            <a href="About.html">Why Baton</a>
+          </li>
+          <li><a href="Cart.html">Cart</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!--main content begins here-->
+    <main>
+      <div class="form_div">
+        <!--Query Form beigns here-->
+        <form action="https://www.example.com" method="post">
+          <br /><br />
+          <div class="overlap_background">
+            <!--First fieldset to group general fields-->
+            <fieldset>
+              <legend>Drop your query</legend>
+              <br />
+              <p>
+                <!--The form components are enclosed between label tags
+                    so that styling can be esily applied to them-->
+                <label class="form_elem" for="fName">First Name</label>
+                <input
+                  type="text"
+                  name="first_name"
+                  id="fName"
+                  maxlength="50"
+                />
+              </p>
+              <p>
+                <label class="form_elem" for="lName">Last Name</label>
+                <input type="text" name="last_name" id="lName" maxlength="50" />
+              </p>
+              <p>
+                <label class="form_elem" for="province">Province</label>
+                <select name="province" id="province" size="1">
+                  <option value="ON">Ontario</option>
+                  <option value="AB">Alberta</option>
+                  <option value="BC">British Columbia</option>
+                </select>
+              </p>
+              <p>
+                <label class="form_elem" for="email">Email</label>
+                <input type="email" name="email" id="email" maxlength="120" />
+              </p>
+              <p>
+                <label class="form_elem" for="phone">Contact Number</label>
+                <input type="text" name="phone" id="phone" maxlength="10" />
+              </p>
+              <p>
+                <label class="form_elem">Preferred communication</label>
+                <label class="radio"
+                  ><input type="radio" name="rating" value="yes" /> Phone</label
+                >
+                <label class="radio"
+                  ><input type="radio" name="rating" value="no" /> Email</label
+                >
+              </p>
+              <br />
+            </fieldset>
+            <!--Second fieldset to group query specific fields-->
+            <fieldset>
+              <br />
+              <p>
+                <label class="form_elem" for="queryType">Query For</label>
+                <select name="province" id="queryType" size="1">
+                  <option value="Product_Info">Product Info</option>
+                  <option value="Payment">Payment Discrepancy</option>
+                  <option value="General_Q">General Query</option>
+                </select>
+              </p>
+              <p>
+                <label class="form_elem" for="Q_desc">Query Description:</label>
+                <textarea
+                  name="Q_desc"
+                  id="Q_desc"
+                  placeholder="Enter details here..."
+                ></textarea>
+              </p>
+            </fieldset>
+            <br /><br />
+            <!--Submit button for the website which will be functional in future-->
+            <p>
+              <input
+                type="submit"
+                name="submit"
+                value="Submit Query"
+                id="submit_btn"
+              />
+            </p>
+          </div>
+          <br />
+        </form>
+      </div>
+    </main>
+
+    <!--Webpage footer-->
+    <footer class="overlap_background">
+      <hr />
+      <address>121 Brunel Road, Mississauga, Ontario</address>
+      <p>Contact: +1 123 456 4567</p>
+      <p>Email: batonmobiles@gmail.com</p>
+    </footer>
+  </body>
+</html>

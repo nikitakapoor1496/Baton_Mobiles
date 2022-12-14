@@ -1,0 +1,578 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+/* importing web font*/
+
+/* Mobile First Development - default styling for small screen devices*/
+
+/* specifying color variavles which will be used in css*/
+:root{
+    --white: #f9f9f9;
+    --blue: #03103f;
+    --skyblue: rgb(28, 139, 184);
+    --backBlue:  rgb(12, 55, 71);
+}
+
+/* initial styling applied to all the components*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*appyling font and background-color styling to body tag*/
+body{
+    background-color: var(--backBlue);
+    font-family: "Poppins", sans-serif;
+}
+
+/*this class is used to apply logo background image, example in ask.html body*/
+.back_img{
+    background-image: url('../images/background_img.png');
+    background-size: 12vh 7vw;
+}
+
+/* class used to provide default styling to any webpage component*/
+.defTheme{
+    color: var(--skyblue);
+}
+
+/* styling for horizontal rule appearing in body*/
+body hr{
+    max-height: 10vh;
+    background-color: var(--white);
+}
+
+/* make header sticky so that it's postion is fixed on scrolling,
+    setting display priority using z-index so that no components overlap header on scrolling*/
+header{
+    background-color: var(--blue);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+/* formatting webpage links*/
+a{
+    text-decoration: none;
+}
+
+/* formatting unordered list markers - used in navigations*/
+ul{
+    list-style: none;
+}
+
+/* Styling for websit heading in the header*/
+.logo{
+    display: inline-block;
+    color: var(--skyblue);
+    font-size: 2.2em;
+    margin-left: 0.1vh;
+}
+
+/* hide the logo image for mobile devices*/
+.logoImg{
+    display: none;
+}
+
+/* ----- styling the navigation menu ----- */
+
+/* styling the nav tags to create menu bar*/
+nav{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: var(--blue);
+    overflow: hidden;
+}
+
+/* Styling the links appearing in ul tag that implements navMenu tag*/
+.navMenu a{
+    display: block;
+    padding: 6.5vh 7vw;
+    color: var(--white);
+    font-size: 3vh;
+}
+
+/* change link background color on hover using Psuedo Classes*/
+.navMenu a:hover{
+    background-color:  var(--skyblue);
+}
+
+/* make transition/ animation when nav will be clicked*/
+nav{
+    max-height: 0;
+    transition: max-height 1s ease-out;
+}
+
+/* style the label for checkbox - menuID, this helps transition menu when checkbox is checked*/
+.menuIcon{
+    cursor: pointer;
+    float: right;
+    padding: 3.8vh 0.5vh;
+}
+
+/* style the span which is label for checkbox - menuID*/
+.menuList{
+    background-color: var(--white);
+    display: block;
+    height: 2px;
+    position: relative;
+    width: 24px;
+}
+
+/* creating additional elements before and after span element using Psuedo Classes*/
+.menuList::before, .menuList::after{
+    background: var(--white);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+
+.menuList::before{
+    top: 5px;
+}
+
+.menuList::after{
+    top: -5px
+}
+
+/* don't display the checkbox box*/
+.menuNav{
+    display: none;
+}
+
+/* display nav copletely on screen when checkbox is checked*/
+.menuNav:checked ~ nav{
+    max-height: 100%;
+}
+
+/* Styling to convert the hamburger icon to cross when checkbox is checked*/
+.menuNav:checked ~ .menuIcon .menuList{
+    background: transparent;
+}
+
+.menuNav:checked ~ .menuIcon .menuList::before{
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.menuNav:checked ~ .menuIcon .menuList::after{
+    transform: rotate(45deg);
+    top: 0;
+}
+
+/* hide the banner section on mobile device*/
+div#banner_id{
+    display: none;
+}
+
+/* apply styling to offers and devices sections*/
+div.sectioning{
+    margin: 0 auto;
+    margin-top: 2.5vh;
+    border: #b1b3ba solid 3px;
+}
+
+/*change background color of devices scetion*/
+#devices_sec{
+    background-color: #4f6d7b;
+}
+
+/*style the dic section headers for offers and devices*/
+div.ani_heading{
+    display: flex;
+    justify-content: center;
+}
+
+/*div.offer_head{
+    transform: skew(10deg, -10deg);
+    
+}*/
+
+div > h1{
+    width: 65%;
+    font-size: 3vh;
+    align-self: center;
+    text-align: center;
+    color: var(--blue);    
+    border: 2px rgb(28, 184, 137) solid;
+    background-color: var(--skyblue);  
+    z-index: 1;
+    /*animation: banner_rotate_2 2s infinite ease-in-out;*/
+}
+
+/* animate offers header to blink backgroud and rotate it*/
+#offer_heading{
+    animation: banner_background 4s infinite ease-out, banner_rotate_1 2s infinite ease-in-out;
+}
+
+
+/* style and animate device section header*/
+div.devices_head > h1{
+    width: 80%;
+    font-size: 5vh;
+    align-self: center;
+    text-align: center;
+    border-radius: 20px;
+    border: 1vh rgb(21, 9, 132) solid;
+    background-color: rgb(234, 245, 250);  
+    z-index: 1;
+    animation: banner_background 4s infinite ease-out;
+}
+
+/*provide boundaries to div sections*/
+.box{
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* make content appear as cards on the screen*/
+.card {
+    background-color: white;
+    border: 1px solid #bacdd8;
+    padding: 2px;
+    border-radius: 12px;
+    margin: 2px;
+    margin-top: 10px;
+}
+
+/* optimize the card images*/
+div.card img {
+    width: 100%;
+    border-radius: 12px;
+    height: 214px;
+    object-fit: cover;
+}
+
+/* set styling for card contents*/
+.card__details {
+    padding: 16px 8px 8px 8px;
+}
+
+
+.tag {
+    padding: 4px 8px;
+    border: 1px solid #e5eaed;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #788697;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 16px;
+}
+
+div.card__details p {
+    font-size: 14px;
+    color: #7f8c9b;
+    line-height: 150%;
+}
+
+/* set styling for card buttons*/
+div.card__details button {
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    color: #0077ff;
+    background-color: #e0efff;
+    margin: 0.3vh auto;
+    display: inline-flex;
+    cursor: pointer;
+}
+
+/* -------- styling forms in ask.html ---------- */
+
+/* center align the form comtents*/
+form{
+   text-align: center;
+}
+
+/* set styling for fieldset and its contents*/
+fieldset{
+    margin-left: 1.5vw;
+    margin-right: 1.5vw;
+    text-align: left;
+    font-weight: bold;
+    font-size: 4vh;
+  }
+
+/* block the background image in form so that contents appeaar clearly*/ 
+div.overlap_background{
+    background-color: var(--backBlue);
+    opacity: 1;
+}
+
+/* style the input elements of form*/
+input{
+    font-size: 2.2vh;
+    width: 50vw;
+    display: inline-block;
+    margin: 0.7vw;
+    padding: 0.5vw;
+    background-color:rgb(177, 209, 213);
+}
+
+/* style the labels used for form fields*/
+label.form_elem{
+    font-size: 2.4vh;
+    width: 37vw;
+    display: inline-block;
+    text-align: right;
+    padding: 1.5vh 2.5vw;
+    font-weight: normal;
+}
+
+/*style the text appearign next to radio buttons*/
+.radio{
+    font-size: 2vh;
+    width: 10vw;
+    display: inline;
+    text-align: left;
+    padding: 1.5vh 1vw;
+    font-weight: normal;
+}
+
+/* apply styling to the actual clickable radio buttons */
+input[type="radio"]{
+    padding: 1.5vh 0.1vw;
+    width: 3.2vw;
+}
+
+/* styling the dropdown box*/
+select{
+    font-size: 2vh;
+    width: 50vw;
+    display: inline-block;
+    margin: 0.7vw;
+    padding: 0.8vw;  
+    background-color:rgb(177, 209, 213);
+}
+
+/* styling the options of dropdown box*/
+select option{
+    font-size: 1.5vh;
+    background-color: var(--white);
+}
+
+/*applying styles to the textarea and the text that'll appear in it.*/
+textarea{
+    display: inline;
+    margin: 0.8vh 0.7vw;
+    width: 50vw;
+    height: 10vh;
+    font-size: 1.9vh;
+    background-color:rgb(177, 209, 213);
+}
+
+/* appyling styles to the form submit button*/
+#submit_btn{
+    background-color:var(--skyblue);
+    color: var(--blue);
+    height: 8vh;
+    border-radius: 30px;
+    border: solid var(--backBlue) 1px;
+}
+
+/* using Psuedo class t stlye the submit button on hover*/
+#submit_btn:hover{
+    background-color: #788697;
+    color: #03103f;
+}
+
+/*styling the footer*/
+footer{
+    text-align: center;
+}
+
+footer.overlap_background{
+    background-color: var(--backBlue);
+    opacity: 1;
+}
+
+/*Creating animation to blink the bakcground*/
+@keyframes banner_background {
+    0% {background-color: rgb(125, 216, 255);
+        color: rgb(19, 24, 96);
+        box-shadow: 0 0 30px rgb(19, 24, 96);}
+    25% {background-color: rgb(75, 178, 223);
+        color: rgb(28, 77, 184);
+        box-shadow: 0 0 30px rgb(28, 77, 184);}
+    100% {background-color: rgb(20, 118, 157);
+        color: rgb(120, 210, 222);
+        box-shadow: 0 0 30px rgb(120, 210, 222);}
+    75% {background-color: rgb(28, 77, 184);
+        color: rgb(75, 178, 223);
+        box-shadow: 0 0 30px rgb(75, 178, 223)}
+    50% {background-color: rgb(19, 24, 96);
+        color: rgb(125, 216, 255);
+        box-shadow: 0 0 30px rgb(125, 216, 255);}
+}
+
+/*Creating animation to rotate and element*/
+@keyframes banner_rotate_1{
+    0% {transform:rotate(7deg);}
+}
+
+
+/*  -------- Styling for larger devices - laptops and desktop screens -------   */
+/* using media query to identify the size of device screen and style it accordigly*/
+
+@media (min-width: 800px){
+    
+    header h2{
+        font-size: 2.2em;
+    }
+
+    .logo{
+        font-size: 3em;
+    }
+
+    .logoImg{
+        display: inline-block;
+        margin-left: 1vh;
+        margin-top: 1vh;
+        height: 5.5em;
+    }
+
+    nav{
+        max-height: 6em;
+        top: 0;
+        position: relative;
+        float: right;
+        width: 55vw; 
+    }
+    .navMenu li{
+        float: left;
+        text-align: center;
+        width: fit-content;
+        margin: 1%;
+        max-height: 6.3em;
+    }
+    .navMenu a{
+        color: var(--skyblue);
+        width: 100%;
+        max-height: 5.9em;
+        text-align: center;
+        padding: 6vh 2.5vw;
+        font-size: 3vh;
+    }
+    .navMenu a:hover{
+        background-color: var(--skyblue);
+        color: var(--white);
+    }
+
+    .menuIcon{
+        display: none;
+    }
+
+    div#banner_id{
+        display: flex;
+        justify-content: center;
+    }
+
+    div#banner_id img{
+        width: 80%;
+        height: 450px;
+        margin: 5px;
+    }
+
+    div > h1{
+        width: 50%;
+        height: 22%;
+        font-size: 4vh;
+    }
+
+    .box{
+        padding: 10px;
+        margin: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .card{
+        max-width: 300px;
+        margin: auto;
+        transition: background-color 1s ease-out 100ms;
+        transition: box-shadow 0.3s ease-out 20ms;
+
+    }
+
+    .card:hover{
+        background-color:rgb(186, 227, 243);
+        box-shadow: 0 0 15px #56ffff;
+    }
+
+    div.card__details button:hover{
+        transition: background-color 0.5s ease-out 30ms;
+        transition: color 0.1s ease-out 20ms;
+    }
+
+    div.card__details button:hover{
+        background-color: rgb(54, 59, 131);
+        color: antiquewhite;
+    }
+
+    .form_div{
+        display: flex;
+        justify-content: center;
+    }
+
+    fieldset{
+        max-width: 80vw;
+      }
+    
+    input{
+        font-size: 3.5vh;
+        width: 30vw;
+    }
+
+    label.form_elem{
+        font-size: 3vh;
+        width: 30vw;
+    }
+    
+    .radio{
+        font-size: 3vh;
+    }
+    
+    input[type="radio"]{
+        padding: 1.5vh 0.1vw;
+        height: 2.5vh;
+    }
+
+    select{
+        font-size: 3vh;
+        width: 30vw;
+        padding: 0.6vw; 
+    }
+    
+    select option{
+        font-size: 2.5vh;
+        background-color:rgb(177, 209, 213);
+    }
+    
+    textarea{
+        display: inline;
+        margin: 1.5vh 0.7vw;
+        margin-top: 2.5vh;
+        width: 45vw;
+        height: 20vh;
+        font-size: 2.2vh;
+        background-color:rgb(177, 209, 213);
+    }
+
+}
+
+
+
